@@ -1,0 +1,4 @@
+.idea
+/emgo-react/node_modules/
+/emgo-api/.mvn/wrapper/
+/emgo-api/target/classes/
