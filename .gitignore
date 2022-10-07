@@ -4,3 +4,4 @@
 /emgo-api/.mvn/wrapper/
 /emgo-api/target/classes/
 emgo-angular.iml
+emgo-angular/dist
