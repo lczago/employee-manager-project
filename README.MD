@@ -1,1 +1,1 @@
-### Project EMGO React + Kotlin
+### Project EMGO Angular + Kotlin
