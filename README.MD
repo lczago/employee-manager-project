@@ -1,1 +1,1 @@
-### Project EMGO Angular + Kotlin
+### Project EMGO: Angular & Kotlin with Spring
