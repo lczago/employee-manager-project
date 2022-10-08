@@ -1,1 +1,1 @@
-### Project EMGO: Angular & Kotlin with Spring
+### Project EMGO: Angular & Go with gin
