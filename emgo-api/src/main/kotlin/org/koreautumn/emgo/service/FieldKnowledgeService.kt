@@ -32,6 +32,7 @@ class FieldKnowledgeService(
     }
 
     fun listAllSubjects(id: Long): List<Subject> {
-        return  repository.listAllSubjects(id)
+        val fieldKnowledge: FieldKnowledge = searchById(id)
+        return  fieldKnowledge.subjects
     }
 }
