@@ -1,7 +1,6 @@
 .idea
 /emgo-angular/node_modules/
 /emgo-angular/.angular
-/emgo-api/.mvn/wrapper/
-/emgo-api/target/classes/
 emgo-angular.iml
 emgo-angular/dist
+emgo-go.iml
