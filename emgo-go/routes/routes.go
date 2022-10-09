@@ -17,18 +17,18 @@ func HandleRequests() {
 }
 
 func fieldKnowledgeRequests(r *gin.Engine) {
-	r.GET("/field_knowledge", controller.ListAllFieldKnowledge)
-	r.GET("/field_knowledge/:id", controller.SearchFieldKnowledgeById)
-	r.GET("/field_knowledge/:id/subjects", controller.ListAllSubjects)
-	r.POST("/field_knowledge", controller.CreateFieldKnowledge)
-	r.PUT("/field_knowledge/:id", controller.EditFieldKnowledge)
-	r.DELETE("/field_knowledge", controller.DeleteFieldKnowledge)
+	r.GET("/api/field_knowledge", controller.ListAllFieldKnowledge)
+	r.GET("/api/field_knowledge/:id", controller.SearchFieldKnowledgeById)
+	r.GET("/api/field_knowledge/:id/subjects", controller.ListAllSubjects)
+	r.POST("/api/field_knowledge", controller.CreateFieldKnowledge)
+	r.PUT("/api/field_knowledge/:id", controller.EditFieldKnowledge)
+	r.DELETE("/api/field_knowledge", controller.DeleteFieldKnowledge)
 }
 
 func subjectRequests(r *gin.Engine) {
-	r.GET("/subject", controller.ListAllSubject)
-	r.GET("/subject/:id", controller.SearchSubjectById)
-	r.POST("/subject", controller.CreateSubject)
-	r.PUT("/subject/:id", controller.EditSubject)
-	r.DELETE("/subject/:id", controller.DeleteSubject)
+	r.GET("/api/subjects", controller.ListAllSubject)
+	r.GET("/api/subject/:id", controller.SearchSubjectById)
+	r.POST("/api/subject", controller.CreateSubject)
+	r.PUT("/api/subject/:id", controller.EditSubject)
+	r.DELETE("/api/subject/:id", controller.DeleteSubject)
 }
