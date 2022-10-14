@@ -6,7 +6,7 @@ type Subject struct {
 	Id               uint           `gorm:"primaryKey" json:"_id"`
 	Description      string         `gorm:"size:100; unique; not null" json:"description"`
 	FieldKnowledgeId uint           `json:"-"`
-	FieldKnowledge   FieldKnowledge `gorm:"embedded" json:"field_knowledge"`
+	FieldKnowledge   FieldKnowledge `json:"field_knowledge"`
 }
 
 func (subject *Subject) AfterFind(db *gorm.DB) error {

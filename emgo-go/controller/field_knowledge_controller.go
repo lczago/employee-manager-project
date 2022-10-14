@@ -28,7 +28,7 @@ func SearchFieldKnowledgeById(c *gin.Context) {
 func ListAllSubjects(c *gin.Context) {
 	var fieldKnowledge models.FieldKnowledge
 	id := c.Params.ByName("id")
-	if err := database.DB.Preload("Subjects.FieldKnowledge").First(&fieldKnowledge, id).Error; err != nil {
+	if err := database.DB.Preload("Subjects").First(&fieldKnowledge, id).Error; err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"error": err.Error(),
 		})
