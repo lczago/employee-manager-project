@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubjectsComponent } from './subjects/subjects.component';
+
 import { SubjectsRoutingModule } from './subjects-routing.module';
+import { SubjectsComponent } from './subjects/subjects.component';
+
 
 @NgModule({
   declarations: [
