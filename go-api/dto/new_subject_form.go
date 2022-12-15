@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"emgo-go/models"
+	"go-api/models"
 )
 
 type NewSubjectForm struct {

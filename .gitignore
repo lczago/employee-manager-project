@@ -4,4 +4,4 @@
 emgo-angular.iml
 emgo-angular/dist
 emgo-go.iml
-emgo-go/project_emgo.db
+go-api/project_emgo.db

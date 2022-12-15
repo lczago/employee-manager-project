@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type Subject struct {
 	Id               uint           `gorm:"primaryKey" json:"_id"`
-	Description      string         `gorm:"size:100; unique; not null" json:"description"`
+	Description      string         `gorm:"size:100; unique; not null"`
 	FieldKnowledgeId uint           `json:"-"`
 	FieldKnowledge   FieldKnowledge `json:"field_knowledge"`
 }

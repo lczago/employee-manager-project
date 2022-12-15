@@ -1,7 +1,7 @@
 package database
 
 import (
-	"emgo-go/models"
+	"go-api/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
