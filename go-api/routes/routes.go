@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gofiber/fiber/v2"
 	"go-api/controller"
+	"go-api/controller/fk_controller"
 )
 
 func HandleRequests(api *fiber.App) {
@@ -11,12 +12,12 @@ func HandleRequests(api *fiber.App) {
 }
 
 func fieldKnowledgeRequests(api *fiber.App) {
-	api.Get("/api/field_knowledge", controller.ListAllFieldKnowledge)
-	api.Get("/api/field_knowledge/:id", controller.SearchFieldKnowledgeById)
-	api.Get("/api/field_knowledge/:id/subjects", controller.ListAllSubjects)
-	api.Post("/api/field_knowledge", controller.CreateFieldKnowledge)
-	api.Put("/api/field_knowledge/:id", controller.EditFieldKnowledge)
-	api.Delete("/api/field_knowledge", controller.DeleteFieldKnowledge)
+	api.Get("/api/field_knowledge", fk_controller.GetAllKnowledgeFields)
+	api.Get("/api/field_knowledge/:id", fk_controller.SearchFieldKnowledgeById)
+	api.Get("/api/field_knowledge/:id/subjects", fk_controller.ListAllSubjects)
+	api.Post("/api/field_knowledge", fk_controller.CreateFieldKnowledge)
+	api.Put("/api/field_knowledge/:id", fk_controller.EditFieldKnowledge)
+	api.Delete("/api/field_knowledge", fk_controller.DeleteFieldKnowledge)
 }
 
 func subjectRequests(api *fiber.App) {
