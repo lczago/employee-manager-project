@@ -3,8 +3,7 @@ package fk_repository
 import (
 	"go-api/database"
 	"go-api/database/entities"
-	"go-api/models"
-	"go-api/utils"
+	"gorm.io/gorm/clause"
 )
 
 type FieldKnowledgeRepository struct{}
@@ -27,8 +26,18 @@ func (repo *FieldKnowledgeRepository) GetAllSubjects(id string) (*[]entities.Sub
 	return &entity.Subjects, err
 }
 
-func (repo *FieldKnowledgeRepository) CreateFieldKnowledge(pModel models.FieldKnowledgeModel) (*entities.FieldKnowledgeEntity, error) {
-	entity := utils.ParseObject[models.FieldKnowledgeModel, entities.FieldKnowledgeEntity](&pModel)
+func (repo *FieldKnowledgeRepository) CreateFieldKnowledge(entity entities.FieldKnowledgeEntity) (*entities.FieldKnowledgeEntity, error) {
 	err := database.DB.Create(&entity).Error
 	return &entity, err
+}
+
+func (repo *FieldKnowledgeRepository) EditFieldKnowledge(entity entities.FieldKnowledgeEntity, id string) (*entities.FieldKnowledgeEntity, error) {
+	err := database.DB.Model(&entity).Clauses(clause.Returning{}).Where("id = ?", id).Updates(&entity).Error
+	return &entity, err
+}
+
+func (repo *FieldKnowledgeRepository) DeleteFieldKnowledge(id string) error {
+	var fieldKnowledge *entities.FieldKnowledgeEntity
+	err := database.DB.Delete(fieldKnowledge, id).Error
+	return err
 }

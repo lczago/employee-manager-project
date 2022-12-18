@@ -17,7 +17,7 @@ func fieldKnowledgeRequests(api *fiber.App) {
 	api.Get("/api/field_knowledge/:id/subjects", fk_controller.ListAllSubjects)
 	api.Post("/api/field_knowledge", fk_controller.CreateFieldKnowledge)
 	api.Put("/api/field_knowledge/:id", fk_controller.EditFieldKnowledge)
-	api.Delete("/api/field_knowledge", fk_controller.DeleteFieldKnowledge)
+	api.Delete("/api/field_knowledge/:id", fk_controller.DeleteFieldKnowledge)
 }
 
 func subjectRequests(api *fiber.App) {

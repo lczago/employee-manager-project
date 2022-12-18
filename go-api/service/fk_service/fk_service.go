@@ -4,6 +4,7 @@ import (
 	"go-api/database/entities"
 	"go-api/database/repository/fk_repository"
 	"go-api/models"
+	"go-api/utils"
 )
 
 type FieldKnowledge interface {
@@ -11,6 +12,8 @@ type FieldKnowledge interface {
 	GetById(id string) (*entities.FieldKnowledgeEntity, error)
 	GetAllSubjects(id string) (*[]entities.SubjectEntity, error)
 	CreateFieldKnowledge(pModel models.FieldKnowledgeModel) (*entities.FieldKnowledgeEntity, error)
+	EditFieldKnowledge(pModel models.FieldKnowledgeModel, id string) (*entities.FieldKnowledgeEntity, error)
+	DeleteFieldKnowledge(id string) error
 }
 
 type FieldKnowledgeService struct {
@@ -30,5 +33,15 @@ func (service *FieldKnowledgeService) GetAllSubjects(id string) (*[]entities.Sub
 }
 
 func (service *FieldKnowledgeService) CreateFieldKnowledge(pModel models.FieldKnowledgeModel) (*entities.FieldKnowledgeEntity, error) {
-	return service.repo.CreateFieldKnowledge(pModel)
+	entity := utils.ParseObject[models.FieldKnowledgeModel, entities.FieldKnowledgeEntity](&pModel)
+	return service.repo.CreateFieldKnowledge(entity)
+}
+
+func (service *FieldKnowledgeService) EditFieldKnowledge(pModel models.FieldKnowledgeModel, id string) (*entities.FieldKnowledgeEntity, error) {
+	entity := utils.ParseObject[models.FieldKnowledgeModel, *entities.FieldKnowledgeEntity](&pModel)
+	return service.repo.EditFieldKnowledge(*entity, id)
+}
+
+func (service *FieldKnowledgeService) DeleteFieldKnowledge(id string) error {
+	return service.repo.DeleteFieldKnowledge(id)
 }
