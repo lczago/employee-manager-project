@@ -1,7 +1,7 @@
 package database
 
 import (
-	"go-api/models"
+	"go-api/database/entities"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -14,12 +14,11 @@ var (
 )
 
 var structModels = []interface{}{
-	&models.FieldKnowledge{},
-	&models.Subject{},
+	&entities.FieldKnowledgeEntity{},
+	&entities.SubjectEntity{},
 }
 
 func ConnectDB() {
-	//connectionString := "host=localhost user=postgres password=pteste123 dbname=project_emgo port=5432 sslmode=disable"
 	DB, err = gorm.Open(sqlite.Open("project_emgo.db"), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			SingularTable: true,

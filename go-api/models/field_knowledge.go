@@ -1,7 +1,5 @@
 package models
 
-type FieldKnowledge struct {
-	Id          uint      `gorm:"primaryKey" json:"_id"`
-	Description string    `gorm:"100; unique; not null"`
-	Subjects    []Subject `json:"-"`
+type FieldKnowledgeModel struct {
+	Description string `validate:"required"`
 }
