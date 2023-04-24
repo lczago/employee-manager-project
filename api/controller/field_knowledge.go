@@ -33,7 +33,7 @@ func CreateFieldKnowledge(c *fiber.Ctx) error {
 
 	fieldKnowledge, err := fieldKnowledgeService.CreateFieldKnowledge(model)
 	if err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(err.Error())
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	return c.Status(fiber.StatusOK).JSON(&fieldKnowledge)
@@ -49,7 +49,7 @@ func EditFieldKnowledge(c *fiber.Ctx) error {
 
 	fieldKnowledge, err := fieldKnowledgeService.EditFieldKnowledge(pModel, id)
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(err.Error())
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	return c.Status(fiber.StatusOK).JSON(&fieldKnowledge)

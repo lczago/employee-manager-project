@@ -11,7 +11,7 @@ func main() {
 	database.ConnectDB()
 	defer database.CloseMongo()
 
-	api := configure.ConfigureApi()
+	api := configure.NewAPI()
 	routes.HandleRequests(api)
 
 	if err := api.Listen(":3000"); err != nil {
